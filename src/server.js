@@ -19,8 +19,8 @@ const io = new Server(server, {
 io.on("connection", (socket) => {
   console.log(`${socket.id} has connected.`);
 
-  socket.on("move-cube", (position) => {
-    socket.broadcast.emit("move-cube", position);
+  socket.on("move-cube", (position, rotation, scale) => {
+    socket.broadcast.emit("move-cube", position, rotation, scale);
   });
 });
 
